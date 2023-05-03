@@ -83,6 +83,9 @@ Route::resource('suggestions', SuggestionController::class)->middleware('auth');
 //Suscriptions routes
 Route::resource('suscriptions', SuscruptionController::class)->middleware('auth');
 
+//Users routes
+Route::resource('suscriptions', SuscruptionController::class)->middleware('auth');
+
 
 //------------------------------------ADMIN ROUTES-----------------------------------------------------------------------
 

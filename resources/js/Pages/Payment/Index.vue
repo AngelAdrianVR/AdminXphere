@@ -26,13 +26,13 @@ export default {
     return {
       tabs: [
         {
-          label: "Pendientes",
-          url: "payments.index",
-        },
-        {
           label: "Historial",
           url: "payments.history",
         },
+          {
+            label: "Pendientes",
+            url: "payments.index",
+          },
       ],
     };
   },

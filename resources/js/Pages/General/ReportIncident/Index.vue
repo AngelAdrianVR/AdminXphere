@@ -2,7 +2,7 @@
   <AppLayout title="Reportar Incidente">
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Reportar Incidente
+        Reportarrtes de Incidentes
       </h2>
     </template>
 

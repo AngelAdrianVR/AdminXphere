@@ -43,7 +43,7 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="text" value="Usuario (calle y número)" class="text-white" />
+                <InputLabel for="text" value="Nombre del Fraccionamiento" class="text-white" />
                 <TextInput
                     id="user"
                     v-model="form.name"

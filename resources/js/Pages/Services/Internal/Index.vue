@@ -8,6 +8,13 @@
       <Tabs :tabs="tabs" />
     </div>
 
+    <div class="flex justify-end">
+      <Link :href="route('neighborhood.create')">
+        <SecondaryButton class="mr-7 mt-4 mb-1">Agregar Servicio</SecondaryButton
+        >
+      </Link>
+    </div>
+
   <div class="py-5">
       <div class="max-w-7xl mx-auto lg:px-8">
         <div class="lg:grid grid-cols-3 gap-4">

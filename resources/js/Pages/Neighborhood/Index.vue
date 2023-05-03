@@ -8,7 +8,7 @@
 
     <div class="flex justify-end">
       <Link :href="route('neighborhood.create')">
-        <SecondaryButton class="mr-7 mt-4 mb-1">Crear publicación</SecondaryButton
+        <SecondaryButton class="mr-7 mt-4 mb-1">Crear Aviso</SecondaryButton
         >
       </Link>
     </div>

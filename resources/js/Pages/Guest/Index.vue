@@ -4,15 +4,18 @@
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">Visitas</h2>
     </template>
 
-    <div class="my-4 border-b border-gray-300">
-      <Tabs :tabs="tabs" />
+    <div class="flex justify-end mt-3 mr-3">
+      <select class="rounded-lg border border-gray-400 text-gray-500 focus:border-stone-500 focus:text-stone-500" name="users" id="users">
+        <option selected>-- Selecciona un usuario --</option>
+        <option v-for="user in users" :key="user.id"> {{ user.name }} </option>
+      </select>
     </div>
 
-    <div class="flex justify-end">
-      <Link :href="route('guest.create')">
-        <SecondaryButton class="mr-7 my-4">Programar Visita</SecondaryButton>
-      </Link>
+    <div class="flex justify-end mt-3 mr-3">
+      <Select :options="user" />
     </div>
+
+
     <SearchInput :filters="filters" filterURL="/guest" />
     <GuestsTable :guests="guests" />
     <div class="flex justify-end">
@@ -27,23 +30,23 @@ import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import Pagination from "@/Components/Pagination.vue";
 import SearchInput from "@/Components/SearchInput.vue";
-import Tabs from "@/Components/Tabs.vue";
+import Select from "@/Components/Inputs/Select.vue";
 
 export default {
   data() {
     return {
-        tabs: [
+      user:[
         {
-          label: "Bitácora",
-          url: "guest.index",
+          'name' : 'angel',
+          'phone': '123456789',
         },
         {
-          label: "Favoritos",
-          url: "favorite-guests.index",
+          'name' : 'miguel',
+          'phone': '123456789',
         },
         {
-          label: "Eventos",
-          url: "guest-events.index",
+          'name' : 'chuy',
+          'phone': '123456789',
         },
       ],
     };
@@ -56,10 +59,11 @@ export default {
     SecondaryButton,
     Pagination,
     SearchInput,
-    Tabs,
+    Select,
   },
 
   props: {
+    users: Object,
     guests: Object,
     filters: Object,
     filterURL: String,

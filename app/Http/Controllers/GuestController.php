@@ -7,6 +7,7 @@ use App\Http\Resources\GuestResource;
 use App\Models\FavoriteGuest;
 use App\Models\Guest;
 use App\Models\GuestType;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -19,8 +20,10 @@ class GuestController extends Controller
 
         $guests = GuestResource::collection(auth()->user()->guests()->with(['guestType','user'])->filter($filters)
                     ->latest()->paginate(30));
+        $users = User::all();
 
-        return Inertia::render('Guest/Index',compact('guests'));
+        // return $users;
+        return Inertia::render('Guest/Index',compact('guests','users'));
     }
 
 

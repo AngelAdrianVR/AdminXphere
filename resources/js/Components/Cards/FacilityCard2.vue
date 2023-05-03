@@ -58,7 +58,7 @@
               </div>
               <div class="flex justify-center mt-2">
               <Link :href="route('reservation-facilities.show', facility.id)">
-                <PrimaryButton :disabled="!facility.is_active" class="w-full flex justify-center"> Reservar </PrimaryButton>
+                <PrimaryButton :disabled="!facility.is_active" class="w-full flex justify-center"> Editar </PrimaryButton>
                 </Link>
               </div>
             </div>

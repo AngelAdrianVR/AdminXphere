@@ -8,6 +8,13 @@
       <Tabs :tabs="tabs" />
     </div>
 
+       <div class="flex justify-end">
+      <Link :href="route('neighborhood.create')">
+        <SecondaryButton class="mr-7 mt-4 mb-1">Generar ficha de pago</SecondaryButton
+        >
+      </Link>
+    </div>
+
     <div>
       <PaymentTable :payments="payments" />
     </div>
@@ -26,12 +33,12 @@ export default {
     return {
       tabs: [
         {
-          label: "Pendientes",
-          url: "payments.index",
-        },
-        {
           label: "Historial",
           url: "payments.history",
+        },
+        {
+          label: "Pendientes",
+          url: "payments.index",
         },
       ],
     };

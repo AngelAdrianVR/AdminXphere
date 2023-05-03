@@ -22,7 +22,7 @@ const admin_menues = [
   // },
 ];
 
-const menues = [
+const finance_menues = [
   // {
   //   label: "Inicio",
   //   route_name: "dashboard",
@@ -62,7 +62,7 @@ const logout = () => {
         <SideBar />
       </aside>
       <main class="col-span-5">
-        <nav class="bg-gradient-to-tl from-slate-700 to-cyan-700 border-b-2 border-gray-500 shadow-md shadow-gray-500/100">
+        <nav class="bg-gradient-to-tl from-green-900 to-green-700 border-b-2 border-gray-500 shadow-md shadow-gray-500/100">
           <!-- Primary Navigation Menu -->
           <div class="w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -193,7 +193,7 @@ const logout = () => {
                                 <i class="fa-solid fa-bell text-gray-300 text-xl hover:text-white cursor-pointer"></i>
                             </template>
                             <template #content>
-                            <div class="text-sm text-white p-3 felx flex-row space-y-3 h-48 overflow-auto">
+                            <div class="text-sm text-gray-700 p-3 felx flex-row space-y-3 h-48 overflow-auto">
                                 <p>Aquí van tus notificaciones</p>
                                 <p>Aquí van tus notificaciones para prueba de deasas</p>
                                 <p>Aquí van tus notificaciones</p>
@@ -308,7 +308,7 @@ const logout = () => {
                                 <i class="fa-solid fa-bell text-gray-200 text-lg"></i>
                             </template>
                             <template #content>
-                            <div class="text-xs text-white p-3 felx flex-row space-y-3 h-48 overflow-auto">
+                            <div class="text-xs text-gray-700 p-3 felx flex-row space-y-3 h-48 overflow-auto">
                                 <p>Aquí van tus notificaciones</p>
                                 <p>Aquí van tus notificaciones para prueba de deasas</p>
                                 <p>Aquí van tus notificaciones</p>
@@ -397,7 +397,7 @@ const logout = () => {
                   d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
                 ></path>
               </svg>
-                Dashboard
+                Panel de inicio
               </ResponsiveNavLink>
               <ResponsiveNavLink
                 :href="route('guest.index')"
@@ -505,6 +505,27 @@ const logout = () => {
               </path>
             </svg>
                  Suscripciones
+              </ResponsiveNavLink>
+            <ResponsiveNavLink
+              :href="route('suscriptions.index')"
+              :active="route().current('suscriptions.*')"
+              >
+              <i class="fa-solid fa-house text-xl"></i>
+                 Usuarios
+              </ResponsiveNavLink>
+            <ResponsiveNavLink
+              :href="route('suscriptions.index')"
+              :active="route().current('suscriptions.*')"
+              >
+              <i class="fa-solid fa-person-digging text-xl"></i>
+                 Empleados
+              </ResponsiveNavLink>
+            <ResponsiveNavLink
+              :href="route('suscriptions.index')"
+              :active="route().current('suscriptions.*')"
+              >
+              <i class="fa-solid fa-gear text-xl"></i>
+                 Configuraciones
               </ResponsiveNavLink>
 
             <!-- Responsive Settings Options -->

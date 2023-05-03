@@ -35,10 +35,10 @@
           </SideBarLink>
           <SideBarLink :href="route('neighborhood.index')" :active="route().current('neighborhood.*')">
             <i class="fa-solid fa-bullhorn text-lg"></i>
-            <span class="ml-1">Sección Vecinal</span>
+            <span class="ml-1"> Sección Vecinal</span>
           </SideBarLink>
           <a :href="route('chatify')"
-            class="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-gradient-to-r from-slate-700 to-teal-500 hover:text-white rounded-lg">
+            class="text-sm font-medium text-gray-700 py-2 px-2 hover:bg-gradient-to-r from-emerald-600 to-green-400 hover:text-white rounded-lg">
             <svg class="w-6 h-6 fill-current inline-block" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
               <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"></path>
@@ -56,7 +56,7 @@
                 d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                 clip-rule="evenodd"></path>
             </svg>
-            <span class="ml-1"> Reservación de Areas</span>
+            <span class="ml-1"> Areas Comunes</span>
           </SideBarLink>
           <SideBarLink :href="route('internal-services.index')" :active="route().current('internal-services.*')">
             <i class="fa-solid fa-people-group text-xl"></i>
@@ -83,14 +83,16 @@
             <span class="ml-1"> Suscripciones</span>
           </SideBarLink>
           <SideBarLink :href="route('dashboard')" :active="false">
-            <svg class="w-6 h-6 fill-current inline-block" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-              <path fill-rule="evenodd"
-                d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
-                clip-rule="evenodd"></path>
-            </svg>
-            <span class="ml-1"> Users</span>
+            <i class="fa-solid fa-house text-xl"></i>
+            <span class="ml-1"> Usuarios</span>
+          </SideBarLink>
+          <SideBarLink :href="route('dashboard')" :active="false">
+            <i class="fa-solid fa-person-digging text-xl"></i>
+            <span class="ml-1"> Empleados</span>
+          </SideBarLink>
+          <SideBarLink :href="route('dashboard')" :active="false">
+            <i class="fa-solid fa-gear text-xl"></i>
+            <span class="ml-1"> Configuraciones</span>
           </SideBarLink>
         </div>
       </div>

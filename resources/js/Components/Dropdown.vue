@@ -75,7 +75,7 @@ const alignmentClasses = computed(() => {
                 style="display: none;"
                 @click="open = false"
             >
-                <div class="rounded-md ring-1 ring-black ring-opacity-5 bg-gradient-to-tl from-slate-600 to-cyan-600" :class="contentClasses">
+                <div class="rounded-md ring-2 ring-green-600 ring-opacity-50 bg-gradient-to-tl from-slate-200 to-gray-200" :class="contentClasses">
                     <slot name="content" />
                 </div>
             </div>
