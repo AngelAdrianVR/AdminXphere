@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\PaymentResource;
 use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -28,7 +29,7 @@ class PaymentController extends Controller
 
     public function historyPayment()
     {
-        $payments = PaymentResource::collection(auth()->user()->payments()->with('user')->latest()->get());
+        $payments = PaymentResource::collection(Payment::with('user')->latest()->get());
         // return $payments;
         return Inertia::render('Payment/History',compact('payments'));
     }
@@ -36,7 +37,9 @@ class PaymentController extends Controller
 
     public function create()
     {
-        //
+        $users = User::where('sphere_id', 5)->get();
+
+        return inertia('Payment/Create', compact('users'));
     }
 
    

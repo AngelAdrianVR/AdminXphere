@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('guests', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->time('arrived_time')->nullable(); //hora no fecha
+            $table->date('arrived_time')->nullable(); //hora no fecha
             $table->string('plate_car')->nullable();
             $table->text('notes')->nullable();
             $table->text('brand_car')->nullable();

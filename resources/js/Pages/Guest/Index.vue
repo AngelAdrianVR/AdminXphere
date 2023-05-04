@@ -11,11 +11,6 @@
       </select>
     </div>
 
-    <div class="flex justify-end mt-3 mr-3">
-      <Select :options="user" />
-    </div>
-
-
     <SearchInput :filters="filters" filterURL="/guest" />
     <GuestsTable :guests="guests" />
     <div class="flex justify-end">

@@ -50,7 +50,7 @@ Route::post('post/comment', [ComentController::class, 'store'])->middleware('aut
 Route::delete('post/comment/destroy/{coment}', [ComentController::class, 'destroy'])->middleware('auth')->name('comments.destroy');
 //Guest routes
 Route::resource('guest',GuestController::class)->middleware('auth');
-Route::resource('favorite-guests',FavoriteGuestController::class)->middleware('auth');
+Route::put('/guest-entry-guest/{guest}',[GuestController::class,'entryGuest'])->name('guest.entry-guest')->middleware('auth');
 Route::post('favorite-guests-program', [FavoriteGuestController::class, 'programGuest'])->name('favorite-guests.program-guest')->middleware('auth');
 Route::resource('guest-events',EventController::class)->middleware('auth');
 
