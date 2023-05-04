@@ -14,9 +14,8 @@ class PaymentController extends Controller
  
     public function index()
     {
-        $payments = PaymentResource::collection(auth()
-                    ->user()
-                    ->payments()
+        $my_sphere_id = auth()->user()->sphere_id;
+        $payments = PaymentResource::collection(Payment::where('sphere_id', $my_sphere_id)
                     ->whereNull('payed_at')
                     ->whereDate('expired_date', '>', today())
                     ->orWhereNull('expired_date')
@@ -29,7 +28,8 @@ class PaymentController extends Controller
 
     public function historyPayment()
     {
-        $payments = PaymentResource::collection(Payment::with('user')->latest()->get());
+        $my_sphere_id = auth()->user()->sphere_id;
+        $payments = PaymentResource::collection(Payment::where('sphere_id', $my_sphere_id)->with('user')->latest()->get());
         // return $payments;
         return Inertia::render('Payment/History',compact('payments'));
     }
