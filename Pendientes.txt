@@ -10,14 +10,11 @@ PAGOS:
 -
 
 SECCIÓN VECINAL:
--Configurar bien las postCards nuevas.
 -Crear avisos o post normal y poner un distintivo o colocarlo en un lugar estrategico para que toda la gente lo vea.
--
 
 ÁREAS COMUNES PARA RESERVAR:
--Poder agregar un área común.
--Poder editar un Área común.
--Área de citas agendadas.
+-Agregar imagen al área creada.
+-Área de Agenda donde se vean todas las areas comunes que se han solicitado.
 
 SERVICIOS INTERNOS Y EXTERNOS:
 -Poder agregar un Servicio interno.
@@ -25,6 +22,8 @@ SERVICIOS INTERNOS Y EXTERNOS:
 -Poder agregar un Servicio Externo.
 -Poder editar un Servicio Externo.
 -Área de gestión de cobranza por poner publicidad de servicio.
+-Agregar imagen a ambos servicios.
+-Hacer el togglede activo e inactivo y poner un estilo que indique el estado de cada uno.
 
 
 
@@ -32,3 +31,4 @@ SERVICIOS INTERNOS Y EXTERNOS:
 
 OTROS:
 -Agregar una barra inferior para shortcuts de módulos.
+-prueba con todos los input errors.

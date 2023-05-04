@@ -7,7 +7,7 @@
     </template>
 
     <div class="flex justify-end">
-      <Link :href="route('neighborhood.create')">
+      <Link :href="route('facilities.create')">
         <SecondaryButton class="mr-7 mt-4 mb-1">Agregar Área</SecondaryButton
         >
       </Link>

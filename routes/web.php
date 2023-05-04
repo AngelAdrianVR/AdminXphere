@@ -25,6 +25,7 @@ use App\Models\Guest;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use PHPUnit\Framework\MockObject\Rule\Parameters;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -59,8 +60,11 @@ Route::get('/payments-history',[PaymentController::class, 'historyPayment'])->na
 //Reservation Facilities routes
 Route::resource('reservation-facilities',ReservationFacilityController::class)->middleware('auth');
 
+//Facilities routes
+Route::resource('facilities',FacilityController::class)->middleware('auth');
+
 //Services routes
-Route::resource('internal-services',InternalServicesController::class)->middleware('auth');
+Route::resource('internal-services',InternalServicesController::class)->Parameters(['internal-services' => 'internal_service'])->middleware('auth');
 Route::resource('external-services',ExternalServicesController::class)->middleware('auth');
 
 //General and intern stuffs routes
