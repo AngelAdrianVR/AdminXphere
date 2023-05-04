@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ComentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ExternalServicesController;
 use App\Http\Controllers\FacilityController;
@@ -14,8 +15,10 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReservationFacilityController;
 use App\Http\Controllers\ResidentPermissionController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\SuscruptionController;
+use App\Http\Controllers\UserController;
 use App\Http\Resources\GuestResource;
 use App\Http\Resources\PaymentResource;
 use App\Models\Guest;
@@ -84,7 +87,13 @@ Route::resource('suggestions', SuggestionController::class)->middleware('auth');
 Route::resource('suscriptions', SuscruptionController::class)->middleware('auth');
 
 //Users routes
-Route::resource('suscriptions', SuscruptionController::class)->middleware('auth');
+Route::resource('users', UserController::class)->middleware('auth');
+
+//Employees routes
+Route::resource('employees', EmployeeController::class)->middleware('auth');
+
+//Settings routes
+Route::resource('settings', SettingController::class)->middleware('auth');
 
 
 //------------------------------------ADMIN ROUTES-----------------------------------------------------------------------

@@ -29,7 +29,7 @@
             </svg>
             <span class="ml-1"> Visitas</span>
           </SideBarLink>
-          <SideBarLink :href="route('payments.index')" :active="route().current('payments.*')">
+          <SideBarLink :href="route('payments.history')" :active="route().current('payments.*')">
             <i class="fa-solid fa-credit-card text-lg"></i>
             <span class="ml-1"> Pagos</span>
           </SideBarLink>
@@ -82,15 +82,15 @@
             </svg>
             <span class="ml-1"> Suscripciones</span>
           </SideBarLink>
-          <SideBarLink :href="route('dashboard')" :active="false">
+          <SideBarLink :href="route('users.index')" :active="route().current('users.*')">
             <i class="fa-solid fa-house text-xl"></i>
             <span class="ml-1"> Usuarios</span>
           </SideBarLink>
-          <SideBarLink :href="route('dashboard')" :active="false">
+          <SideBarLink :href="route('employees.index')" :active="route().current('employees.*')">
             <i class="fa-solid fa-person-digging text-xl"></i>
             <span class="ml-1"> Empleados</span>
           </SideBarLink>
-          <SideBarLink :href="route('dashboard')" :active="false">
+          <SideBarLink :href="route('settings.index')" :active="route().current('settings.*')">
             <i class="fa-solid fa-gear text-xl"></i>
             <span class="ml-1"> Configuraciones</span>
           </SideBarLink>

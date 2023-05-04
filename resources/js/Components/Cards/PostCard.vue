@@ -29,11 +29,11 @@
         </p> -->
         <p class="flex items-center">
           <i class="fa-regular fa-comment rounded-full p-1"></i>
-          <span>{{post.comments.length  }}</span>
+          <span>{{ post.comments.length }}</span>
         </p>
         <p class="flex items-center">
           <i class="fa-regular fa-image rounded-full p-1"></i>
-          <span>{{post.media.length}}</span>
+          <span>{{ post.media.length }}</span>
         </p>
       </div>
     </footer>
