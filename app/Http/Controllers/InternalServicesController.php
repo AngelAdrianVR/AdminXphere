@@ -18,34 +18,54 @@ class InternalServicesController extends Controller
    
     public function create()
     {
-        //
+        return inertia('Services/Internal/Create');
     }
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'phone'  => 'required|string',
+            'description' => 'nullable|string',
+            'is_active'  => 'boolean',
+        ]);
+        
+        
+        InternalServices::create($request->all() + ['sphere_id' => auth()->user()->sphere_id]);
+
+        return redirect()->route('internal-services.index');
     }
 
     
-    public function show(InternalServices $internalServices)
+    public function show(InternalServices $internalService)
     {
         //
     }
 
     
-    public function edit(InternalServices $internalServices)
+    public function edit(InternalServices $internal_service)
     {
-        //
+        return inertia('Services/Internal/Edit',compact('internal_service'));
     }
 
     
-    public function update(Request $request, InternalServices $internalServices)
+    public function update(Request $request, InternalServices $internal_service)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'phone'  => 'required|string',
+            'description' => 'nullable|string',
+            'is_active'  => 'boolean',
+        ]);
+        
+        
+        $internal_service->update($request->all() + ['sphere_id' => auth()->user()->sphere_id]);
+
+        return redirect()->route('internal-services.index');
     }
 
    
-    public function destroy(InternalServices $internalServices)
+    public function destroy(InternalServices $internal_service)
     {
         //
     }

@@ -12,6 +12,7 @@ class InternalServices extends Model
     protected $fillable = [
         'name',
         'description',
+        'phone',
         'sphere_id',
     ];
 

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mt-20 rounded-lg cursor-pointer border-2 border-transparent hover:border-cyan-600 transition ease-in-out bg-transparet"
+    class="mt-20 rounded-lg cursor-pointer border-2 border-transparent hover:border-emerald-600 transition ease-in-out bg-transparet"
   >
     <div class="bg-gray-200 shadow-md rounded-md px-2 py-3">
       <!-- component -->
@@ -23,11 +23,13 @@
           <hr class="mt-8" />
           <div class="flex p-4">
             <div class="w-1/2 text-center">
-              <SecondaryButton>Otra</SecondaryButton>
+              <SecondaryButton>Desactivar</SecondaryButton>
             </div>
             <div class="w-0 border border-gray-300"></div>
             <div class="w-1/2 text-center">
-              <PrimaryButton>Solicitar</PrimaryButton>
+            <Link :href="route('internal-services.edit', internal_service)">
+              <PrimaryButton>Editar</PrimaryButton>
+              </Link>
             </div>
           </div>
         </div>

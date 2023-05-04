@@ -19,7 +19,7 @@
     <div
       class="max-w-2xl md:mx-auto mt-5 shadow-md shadow-gray-500/70 rounded-lg px-5 py-8 bg-white mx-4"
     >
-      <form @submit.prevent="store">
+      <form @submit.prevent="update">
         <div class="relative z-0 mb-6 w-full group">
           <FloatingInput v-model="form.name" type="text">
             <template #label> Nombre del Área* </template>
@@ -70,7 +70,7 @@
             class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-emerald-600 peer-focus:dark:text-emerald-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >Descripción</label
           >
-          <InputError :message="$page.props?.errors.description" />
+          <InputError :message="$page.props?.errors.notes" />
         </div>
 
         <div class="block mb-7">
@@ -88,7 +88,7 @@
         </div>
 
         <div class="flex justify-center lg:justify-end">
-          <PrimaryButton :disabled="form.processing">Agregar</PrimaryButton>
+          <PrimaryButton :disabled="form.processing">Actualizar</PrimaryButton>
         </div>
       </form>
     </div>
@@ -106,13 +106,13 @@ import Checkbox from "@/Components/Checkbox.vue";
 export default {
   data() {
     const form = useForm({
-      name: "",
-      location: "",
-      capacity: null,
-      cost: null,
-      hours_available: null,
-      description: "",
-      is_active: true,
+      name: this.facility.name,
+      location: this.facility.location,
+      capacity: this.facility.capacity,
+      cost: this.facility.cost,
+      hours_available: this.facility.hours_available,
+      description: this.facility.description,
+      is_active: this.facility.is_active,
     });
     return {
       form,
@@ -129,11 +129,13 @@ export default {
     Checkbox
   },
 
-  props: {},
+  props: {
+    facility: Object
+  },
 
   methods: {
-    store() {
-      this.form.post(this.route("facilities.store"));
+    update() {
+      this.form.put(this.route("facilities.update", this.facility.id));
     },
   },
   mounted() {},
