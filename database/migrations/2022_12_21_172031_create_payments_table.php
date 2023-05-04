@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('payed_at')->nullable();
             $table->date('expired_date')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('sphere_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

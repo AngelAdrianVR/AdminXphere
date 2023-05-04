@@ -21,8 +21,8 @@
       class="max-w-2xl md:mx-auto mt-5 shadow-md shadow-gray-500/70 rounded-lg px-5 py-8 bg-white mx-4"
     >
       <div class="flex items-center my-2">
-        <i class="fa-solid fa-house text-lg mr-2 text-gray-700"></i>
         <div class="flex flex-col">
+        <img class="w-20 h-20 rounded-full object-cover mr-4 shadow" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="avatar">
           <span>{{ post.data.user.name }}</span>
           <small class="text-gray-500 -mt-1">{{ post.data.created_at }}</small>
         </div>
@@ -84,12 +84,12 @@
             rows="1"
             name="floating_content"
             autocomplete="off"
-            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-cyan-600 peer"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-emerald-600 peer"
             placeholder=" "
           />
           <label
             for="floating_content"
-            class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-cyan-600 peer-focus:dark:text-cyan-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            class="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-emerald-600 peer-focus:dark:text-emerald-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >Escribe tu comentario..</label
           >
           <InputError :message="$page.props?.errors.message" />
@@ -102,14 +102,15 @@
       <!-- ------------comment----------------- -->
       <div v-for="(comment, index) in post.data.comments" :key="comment.id">
         <div
-          class="flex items-center my-3 bg-sky-200 rounded-lg shadow-md shadow-gray-300/100 px-2 py-1 relative"
+          class="flex items-center my-3 bg-emerald-100 rounded-lg shadow-md shadow-gray-300/100 px-2 py-1 relative"
         >
           <div class="flex flex-col">
-          <i class="fa-solid fa-house text-lg mr-2 text-gray-600"></i>
+          <!-- <i class="fa-solid fa-house text-lg mr-2 text-gray-600"></i> -->
+          <img class="w-6 h-6 rounded-full object-cover mr-4 shadow" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="avatar">
             <span class="font-bold">{{ comment.user.name }}</span>
             <small class="text-gray-500 -mt-1">{{ comment.created_at }}</small>
             <p class="text-sm my-1">{{ comment.message }}</p>
-            <!-- <p @click="replyToggle" class="font-semibold text-cyan-700 hover:text-cyan-500 cursor-pointer">Responder</p> 
+            <!-- <p @click="replyToggle" class="font-semibold text-emerald-700 hover:text-cyan-500 cursor-pointer">Responder</p> 
 
             <form @submit.prevent="storeReply">
         <div
@@ -140,7 +141,7 @@
           </div>
 
           <i v-if="comment.user.id == $page.props.user.id"
-            class="fa-solid fa-ellipsis-vertical absolute top-3 right-3 text-gray-600 p-2 rounded-full hover:bg-sky-300 cursor-pointer"
+            class="fa-solid fa-ellipsis-vertical absolute top-3 right-3 text-gray-600 p-2 rounded-full hover:bg-emerald-200 cursor-pointer"
             @click="toggleDropdown(index)"
           >
           </i>

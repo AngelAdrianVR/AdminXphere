@@ -3,5 +3,32 @@ VISITAS:
 -El select de usuarios no funciona. Te da todas las visitas del residente seleccionado. Se puede cambiar por el buscador.
 
 PAGOS:
+-Paginar historial de todos los pagos de todos los usuarios.
 -En crear ficha de pago, activando el check de todos los usuarios se oculta el apartado de seleccion de usuarios.
 -En el selector de usuarios Se agrega al array los puros nombres de usuario y al eliminar el usuario se borra mal.
+-En el tab de pendientes se tienen que mostrar los pagos que no se han pagado pero que no estan expirados. solo pendientes.
+-
+
+SECCIÓN VECINAL:
+-Configurar bien las postCards nuevas.
+-Crear avisos o post normal y poner un distintivo o colocarlo en un lugar estrategico para que toda la gente lo vea.
+-
+
+ÁREAS COMUNES PARA RESERVAR:
+-Poder agregar un área común.
+-Poder editar un Área común.
+-Área de citas agendadas.
+
+SERVICIOS INTERNOS Y EXTERNOS:
+-Poder agregar un Servicio interno.
+-Poder editar un Servicio interno.
+-Poder agregar un Servicio Externo.
+-Poder editar un Servicio Externo.
+-Área de gestión de cobranza por poner publicidad de servicio.
+
+
+
+
+
+OTROS:
+-Agregar una barra inferior para shortcuts de módulos.

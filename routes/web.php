@@ -51,8 +51,6 @@ Route::delete('post/comment/destroy/{coment}', [ComentController::class, 'destro
 //Guest routes
 Route::resource('guest',GuestController::class)->middleware('auth');
 Route::put('/guest-entry-guest/{guest}',[GuestController::class,'entryGuest'])->name('guest.entry-guest')->middleware('auth');
-Route::post('favorite-guests-program', [FavoriteGuestController::class, 'programGuest'])->name('favorite-guests.program-guest')->middleware('auth');
-Route::resource('guest-events',EventController::class)->middleware('auth');
 
 //Payment routes
 Route::resource('payments',PaymentController::class)->middleware('auth');

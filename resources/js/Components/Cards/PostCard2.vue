@@ -1,24 +1,21 @@
 <template>
 
-    <!-- component -->
-<!-- post card -->
-<div class="flex bg-white shadow-lg rounded-lg mx-1 md:mx-auto max-w-md md:max-w-2xl "><!--horizantil margin is just for display-->
-   <div class="flex items-start px-4 py-6">
-      <img class="w-12 h-12 rounded-full object-cover mr-4 shadow" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="avatar">
-      <div class="">
+<div class="flex bg-white shadow-lg rounded-lg md:mx-auto max-w-md md:max-w-2xl cursor-pointer border-2 border-gray-200 hover:border-emerald-600 px-2 py-2 mb-3 transition ease-in-out"><!--horizantil margin is just for display-->
+<Link :href="route('neighborhood.show', post.id)">
+   <div class="flex items-start px-14 py-6 -ml-9">
+      <img class="w-14 h-14 rounded-full object-cover mr-4 shadow" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="avatar">
+      <div class="w-64 -mx-4 py-3 px-1">
          <div class="flex items-center justify-between">
-            <h2 class="text-lg font-semibold text-gray-900 -mt-1">{{ post.user.name }}</h2>
+            <h2 class="text-lg font-semibold text-gray-900">{{ post.user.name }}</h2>
             <small class="text-sm text-gray-700">{{ post.created_at }}</small>
          </div>
          <p class="text-gray-700">{{ post.title }} </p>
-         <p class="mt-3 text-gray-700 text-sm">
+         <p class="mt-3 text-gray-700 text-sm truncate">
             {{ post.content }}
          </p>
          <div class="mt-4 flex items-center">
             <div class="flex mr-2 text-gray-700 text-sm ">
-               <svg fill="none" viewBox="0 0 24 24"  class="w-4 h-4 mr-1" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
+               <i class="fa-regular fa-image rounded-full"></i>
                <span>{{ post.media.length }}</span>
             </div>
             <div class="flex mr-2 text-gray-700 text-sm ">
@@ -36,6 +33,7 @@
          </div>
       </div>
    </div>
+   </Link>
 </div>        
     
 </template>

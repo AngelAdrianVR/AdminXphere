@@ -47,7 +47,7 @@
             </td>
             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
               <div>
-                <primaryButton v-if="payment.status['text'] === 'Pendiente' || payment.status['text'] === 'Expirado' ">Pagar</primaryButton>
+                <primaryButton v-if="payment.status['text'] === 'Pendiente' || payment.status['text'] === 'Expirado' ">Recordar pago</primaryButton>
               </div>
             </td>
           </tr>
