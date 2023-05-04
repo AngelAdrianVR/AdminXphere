@@ -20,12 +20,25 @@
         </div>
       </div>
     </div>
+
+
+
+    <div class="py-12">
+      <div class="max-w-7xl mx-auto lg:px-8">
+        <div class="lg:grid grid-cols-3 gap-4">
+          <PostCard2 v-for="post in posts.data" :key="post.id" :post="post" />
+        </div>
+      </div>
+    </div>
+
+
   </AppLayout>
 </template>
 <script>
 
 import AppLayout from "@/Layouts/AppLayout.vue";
 import PostCard from "@/Components/Cards/PostCard.vue";
+import PostCard2 from "@/Components/Cards/PostCard2.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 
@@ -33,6 +46,7 @@ export default {
   components: {
     AppLayout,
     PostCard,
+    PostCard2,
     SecondaryButton,
     Link,
   },
