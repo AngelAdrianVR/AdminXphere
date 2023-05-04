@@ -18,11 +18,11 @@ class GuestController extends Controller
     {
         $filters = $request->all('search');
 
-        $guests = GuestResource::collection(auth()->user()->guests()->with(['guestType','user'])->filter($filters)
+        $guests = GuestResource::collection(Guest::with(['guestType','user'])->filter($filters)
                     ->latest()->paginate(30));
         $users = User::all();
 
-        // return $users;
+        // return $guests;
         return Inertia::render('Guest/Index',compact('guests','users'));
     }
 
@@ -98,6 +98,15 @@ class GuestController extends Controller
         $guest->delete();
         request()->session()->flash('flash.banner', '¡Se ha eliminado correctamente!');
         request()->session()->flash('flash.bannerStyle', 'success'); 
+        return redirect()->route('guest.index');
+    }
+
+    public function entryGuest($guest)
+    {
+        $guest->arrived_time = now();
+        $guest->save();
+        
+
         return redirect()->route('guest.index');
     }
 

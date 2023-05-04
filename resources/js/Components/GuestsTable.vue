@@ -15,7 +15,8 @@
       <table class="items-center w-full bg-transparent border-collapse">
         <thead>
           <tr>
-            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-emerald-800 text-emerald-300 border-emerald-700">Nombre</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-emerald-800 text-emerald-300 border-emerald-700">Residente</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-emerald-800 text-emerald-300 border-emerald-700">Visita</th>
             <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-emerald-800 text-emerald-300 border-emerald-700">Tipo</th>
             <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-emerald-800 text-emerald-300 border-emerald-700">Notas</th>
             <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-emerald-800 text-emerald-300 border-emerald-700">Marca/modelo Vehiculo</th>
@@ -30,7 +31,8 @@
         <tbody>
           <tr v-for="guest in guests.data" :key="guest.id">
             <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
-              <span class="ml-3 font-bold text-white text-lg"> {{ guest.name }} </span></th>
+              <span class="ml-3 font-bold text-white text-lg"> {{ guest.user.name }} </span></th>
+            <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{{ guest.name }}</td>
             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{{ guest.guest_type.name }}</td>
             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{{ guest.notes }}</td>
             <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{{ guest.brand_car }}</td>
@@ -48,11 +50,8 @@
               </div>
             </td>
             <td class="flex border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-              <Link v-if="guest.status['text'] == 'Pendiente'" :href="route('guest.edit', guest)" class="text-blueGray-500 block py-1 px-3 space-x-3">
-                <i title="Editar" class="fa-solid fa-pencil hover:text-cyan-600"></i>
-              </Link>
-              <button v-if="guest.status['text'] == 'Pendiente'" @click="delete_confirm = true; item_to_delete = guest;"  class="text-blueGray-500 block py-1 px-3 space-x-3">
-                <i title="Borrar" class="fa fa-trash hover:text-red-600"></i>
+              <button v-if="guest.status['text'] == 'Pendiente'" @click="entry_confirm = true; item_to_entry = guest;"  class="text-blueGray-500 block py-1 px-3 space-x-3">
+                <i title="Ingresado" class="fa-solid fa-circle-check text-xl hover:text-green-400"></i>
               </button>
             </td>
           </tr>
@@ -63,20 +62,19 @@
 </div>
 </section>
 
-    <ConfirmationModal :show="delete_confirm" @close="delete_confirm = false">
+    <ConfirmationModal :show="entry_confirm" @close="delete_confirm = false">
     <template #title>
       <div>¿Deseas continuar?</div>
     </template>
     <template #content>
       <div>
-        Estás a punto de eliminar el registro de visita. Una vez realizado ya no se podrá
-        recuperar.
+        Marcarcarás como Ingresado al visitante.
       </div>
     </template>
     <template #footer>
       <div class="flex justify-end">
-        <button @click="this.delete()" class="px-2 py-1 font-semibold border rounded border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition duration-200 mr-2">Eliminar</button>
-        <button class="px-2 py-1 font-semibold border rounded border-gray-500 text-gray-500 hover:bg-gray-100 transition duration-200" @click="delete_confirm = false">
+        <button @click="this.entry()" class="px-2 py-1 font-semibold border rounded border-green-500 text-green-500 hover:bg-green-500 hover:text-white transition duration-200 mr-2">Marcar como Ingresado</button>
+        <button class="px-2 py-1 font-semibold border rounded border-gray-500 text-gray-500 hover:bg-gray-100 transition duration-200" @click="entry_confirm = false">
           Cancelar
         </button>
       </div>
@@ -91,8 +89,8 @@ import ConfirmationModal from "@/Components/ConfirmationModal.vue";
 export default {
   data(){
     return{
-      delete_confirm: false,
-      item_to_delete: {},
+      entry_confirm: false,
+      item_to_entry: {},
     }
   },
   components: {
@@ -103,11 +101,11 @@ export default {
     guests: Object,
   },
   methods:{
-    delete() {
-      this.$inertia.delete(
-        this.route("guest.destroy", this.item_to_delete)
+    entry() {
+      this.$inertia.put(
+        this.route("guest.entry-guest", this.item_to_entry)
       );
-      this.delete_confirm = false;
+      this.entry_confirm = false;
     },
   },
 }

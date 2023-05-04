@@ -33,7 +33,7 @@ class GuestResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'arrived_time' => $this->arrived_time,
+            'arrived_time' => $this->arrived_time?->isoformat('hh:mm a'),
             'status' => $status,
             'plate_car' => $this->plate_car,
             'brand_car' => $this->brand_car,

@@ -9,7 +9,7 @@
     </div>
 
        <div class="flex justify-end">
-      <Link :href="route('neighborhood.create')">
+      <Link :href="route('payments.create')">
         <SecondaryButton class="mr-7 mt-4 mb-1">Generar ficha de pago</SecondaryButton
         >
       </Link>

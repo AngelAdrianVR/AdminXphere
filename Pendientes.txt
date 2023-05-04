@@ -1,0 +1,7 @@
+VISITAS:
+-En modulo de visitas no sirve el boton que asigna la entrada al visitnte.
+-El select de usuarios no funciona. Te da todas las visitas del residente seleccionado. Se puede cambiar por el buscador.
+
+PAGOS:
+-En crear ficha de pago, activando el check de todos los usuarios se oculta el apartado de seleccion de usuarios.
+-En el selector de usuarios Se agrega al array los puros nombres de usuario y al eliminar el usuario se borra mal.
