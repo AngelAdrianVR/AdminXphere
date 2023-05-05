@@ -65,7 +65,7 @@ Route::resource('facilities',FacilityController::class)->middleware('auth');
 
 //Services routes
 Route::resource('internal-services',InternalServicesController::class)->Parameters(['internal-services' => 'internal_service'])->middleware('auth');
-Route::resource('external-services',ExternalServicesController::class)->middleware('auth');
+Route::resource('external-services',ExternalServicesController::class)->Parameters(['external-services' => 'external_service'])->middleware('auth');
 
 //General and intern stuffs routes
 Route::resource('general', GeneralController::class)->middleware('auth');

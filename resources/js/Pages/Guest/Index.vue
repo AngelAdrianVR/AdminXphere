@@ -30,20 +30,7 @@ import Select from "@/Components/Inputs/Select.vue";
 export default {
   data() {
     return {
-      user:[
-        {
-          'name' : 'angel',
-          'phone': '123456789',
-        },
-        {
-          'name' : 'miguel',
-          'phone': '123456789',
-        },
-        {
-          'name' : 'chuy',
-          'phone': '123456789',
-        },
-      ],
+     
     };
   },
 

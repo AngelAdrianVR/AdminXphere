@@ -17,13 +17,11 @@ SECCIÓN VECINAL:
 -Área de Agenda donde se vean todas las areas comunes que se han solicitado.
 
 SERVICIOS INTERNOS Y EXTERNOS:
--Poder agregar un Servicio interno.
--Poder editar un Servicio interno.
--Poder agregar un Servicio Externo.
--Poder editar un Servicio Externo.
+-arreglar en servicios externos lo de redes sociales.
 -Área de gestión de cobranza por poner publicidad de servicio.
 -Agregar imagen a ambos servicios.
--Hacer el togglede activo e inactivo y poner un estilo que indique el estado de cada uno.
+-No se puede crear servicio desactivado aunque no se ponga el check.
+-hacer funcionar el boton de activar y desactivar.
 
 
 

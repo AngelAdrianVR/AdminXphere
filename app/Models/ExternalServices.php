@@ -12,9 +12,11 @@ class ExternalServices extends Model
     protected $fillable = [
         'name',
         'phone',
+        'whatsapp',
         'description',
         'website',
         'social_networks',
+        'sphere_id',
     ];
 
     protected $casts = [

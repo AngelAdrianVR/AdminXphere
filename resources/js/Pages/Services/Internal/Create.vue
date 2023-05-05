@@ -35,6 +35,13 @@
         </div>
 
         <div class="relative z-0 mb-6 w-full group">
+          <FloatingInput v-model="form.whatsapp" type="text">
+            <template #label> Whatsapp </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.whatsapp" class="mb-4" />
+        </div>
+
+        <div class="relative z-0 mb-6 w-full group">
           <textarea
             v-model="form.description"
             type="text"
@@ -87,6 +94,7 @@ export default {
     const form = useForm({
       name: "",
       phone: "",
+      whatsapp: "",
       description: "",
       is_active: true,
     });
