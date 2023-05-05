@@ -62,7 +62,7 @@
 </div>
 </section>
 
-    <ConfirmationModal :show="entry_confirm" @close="delete_confirm = false">
+    <ConfirmationModal :show="entry_confirm" @close="entry_confirm = false">
     <template #title>
       <div>¿Deseas continuar?</div>
     </template>

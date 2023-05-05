@@ -1,12 +1,12 @@
 <template>
-  <AppLayout title="Servicios internos">
+  <AppLayout title="Servicios Externos">
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Editar Servicio Interno</h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Agregar Servicio Externo</h2>
     </template>
 
     <div class="flex justify-start ml-2">
       <Link
-        :href="route('internal-services.index')"
+        :href="route('external-services.index')"
         class="flex items-center mt-2 text-slate-700"
       >
         <i
@@ -19,7 +19,7 @@
     <div
       class="max-w-2xl md:mx-auto mt-5 shadow-md shadow-gray-500/70 rounded-lg px-5 py-8 bg-white mx-4"
     >
-      <form @submit.prevent="update">
+      <form @submit.prevent="store">
         <div class="relative z-0 mb-6 w-full group">
           <FloatingInput v-model="form.name" type="text">
             <template #label> Nombre del Servicio/Tienda/Encargado* </template>
@@ -42,6 +42,47 @@
         </div>
 
         <div class="relative z-0 mb-6 w-full group">
+          <FloatingInput v-model="form.website" type="text">
+            <template #label> Sitio Web </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.website" class="mb-4" />
+        </div>
+
+        <label class="text-emerald-500"
+          >Redes Sociales
+        </label>
+
+    <div class="border border-emerald-500/50 rounded-lg p-2">
+        <div class="relative z-0 mb-6 mt-2 w-full group">
+          <FloatingInput v-model="form.social_networks" type="text">
+            <template #label>Facebook </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
+        </div>
+
+        <div class="relative z-0 mb-6 w-full group">
+          <FloatingInput v-model="form.social_networks" type="text">
+            <template #label>Instagram </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
+        </div>
+
+        <div class="relative z-0 mb-6 w-full group">
+          <FloatingInput v-model="form.social_networks" type="text">
+            <template #label>Tiktok </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
+        </div>
+
+        <div class="relative z-0 mb-6 w-full group">
+          <FloatingInput v-model="form.social_networks" type="text">
+            <template #label>Twitter </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
+        </div>
+    </div>
+
+        <div class="relative z-0 mb-6 mt-3 w-full group">
           <textarea
             v-model="form.description"
             type="text"
@@ -74,7 +115,7 @@
         </div>
 
         <div class="flex justify-center lg:justify-end">
-          <PrimaryButton :disabled="form.processing">Actualizar</PrimaryButton>
+          <PrimaryButton :disabled="form.processing">Agregar</PrimaryButton>
         </div>
       </form>
     </div>
@@ -92,11 +133,18 @@ import Checkbox from "@/Components/Checkbox.vue";
 export default {
   data() {
     const form = useForm({
-      name: this.internal_service.name,
-      phone: this.internal_service.phone,
-      whatsapp: this.internal_service.whatsapp,
-      description: this.internal_service.description,
-      is_active: this.internal_service.is_active,
+      name: "",
+      phone: "",
+      whatsapp: "",
+      website: "",
+      social_networks: {
+        facebook: null,
+        instagram: null,
+        tiktok: null,
+        twitter: null,
+      },
+      description: "",
+      is_active: true,
     });
     return {
       form,
@@ -113,13 +161,11 @@ export default {
     Checkbox
   },
 
-  props: {
-    internal_service: Object
-  },
+  props: {},
 
   methods: {
-    update() {
-      this.form.put(this.route("internal-services.update", this.internal_service));
+    store() {
+      this.form.post(this.route("external-services.store"));
     },
   },
   mounted() {},

@@ -9,7 +9,7 @@
     </div>
 
     <div class="flex justify-end">
-      <Link :href="route('neighborhood.create')">
+      <Link :href="route('external-services.create')">
         <SecondaryButton class="mr-7 mt-4 mb-1">Agregar Servicio</SecondaryButton
         >
       </Link>

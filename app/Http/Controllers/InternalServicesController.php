@@ -25,11 +25,11 @@ class InternalServicesController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
-            'phone'  => 'required|string',
+            'phone'  => 'required|string|min:10|max:10',
+            'whatsapp'  => 'nullable|string|min:10|max:10',
             'description' => 'nullable|string',
             'is_active'  => 'boolean',
         ]);
-        
         
         InternalServices::create($request->all() + ['sphere_id' => auth()->user()->sphere_id]);
 
@@ -53,7 +53,8 @@ class InternalServicesController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
-            'phone'  => 'required|string',
+            'phone'  => 'required|string|min:10|max:10',
+            'whatsapp'  => 'nullable|string|min:10|max:10',
             'description' => 'nullable|string',
             'is_active'  => 'boolean',
         ]);
@@ -67,6 +68,7 @@ class InternalServicesController extends Controller
    
     public function destroy(InternalServices $internal_service)
     {
-        //
+        $internal_service->delete();
+        return redirect()->route('internal-services.index');
     }
 }

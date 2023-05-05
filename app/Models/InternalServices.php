@@ -13,6 +13,7 @@ class InternalServices extends Model
         'name',
         'description',
         'phone',
+        'whatsapp',
         'sphere_id',
     ];
 

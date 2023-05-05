@@ -1,12 +1,12 @@
 <template>
-  <AppLayout title="Servicios internos">
+  <AppLayout :title="external_service.name">
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Editar Servicio Interno</h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Editar Servicio Externo "{{ external_service.name }}"</h2>
     </template>
 
     <div class="flex justify-start ml-2">
       <Link
-        :href="route('internal-services.index')"
+        :href="route('external-services.index')"
         class="flex items-center mt-2 text-slate-700"
       >
         <i
@@ -42,6 +42,47 @@
         </div>
 
         <div class="relative z-0 mb-6 w-full group">
+          <FloatingInput v-model="form.website" type="text">
+            <template #label> Sitio Web </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.website" class="mb-4" />
+        </div>
+
+        <label class="text-emerald-500"
+          >Redes Sociales
+        </label>
+
+    <div class="border border-emerald-500/50 rounded-lg p-2">
+        <div class="relative z-0 mb-6 mt-2 w-full group">
+          <FloatingInput v-model="form.social_networks" type="text">
+            <template #label>Facebook </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
+        </div>
+
+        <div class="relative z-0 mb-6 w-full group">
+          <FloatingInput v-model="form.social_networks" type="text">
+            <template #label>Instagram </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
+        </div>
+
+        <div class="relative z-0 mb-6 w-full group">
+          <FloatingInput v-model="form.social_networks" type="text">
+            <template #label>Tiktok </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
+        </div>
+
+        <div class="relative z-0 mb-6 w-full group">
+          <FloatingInput v-model="form.social_networks" type="text">
+            <template #label>Twitter </template>
+          </FloatingInput>
+          <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
+        </div>
+    </div>
+
+        <div class="relative z-0 mb-6 mt-3 w-full group">
           <textarea
             v-model="form.description"
             type="text"
@@ -92,11 +133,18 @@ import Checkbox from "@/Components/Checkbox.vue";
 export default {
   data() {
     const form = useForm({
-      name: this.internal_service.name,
-      phone: this.internal_service.phone,
-      whatsapp: this.internal_service.whatsapp,
-      description: this.internal_service.description,
-      is_active: this.internal_service.is_active,
+      name: this.external_service.name,
+      phone: this.external_service.phone,
+      whatsapp: this.external_service.whatsapp,
+      website: this.external_service.website,
+      social_networks: {
+        facebook: null,
+        instagram: null,
+        tiktok: null,
+        twitter: null,
+      },
+      description: this.external_service.description,
+      is_active: this.external_service.is_active,
     });
     return {
       form,
@@ -114,12 +162,12 @@ export default {
   },
 
   props: {
-    internal_service: Object
+    external_service: Object
   },
 
   methods: {
     update() {
-      this.form.put(this.route("internal-services.update", this.internal_service));
+      this.form.put(this.route("external-services.update", this.external_service));
     },
   },
   mounted() {},
