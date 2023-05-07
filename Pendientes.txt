@@ -23,6 +23,20 @@ SERVICIOS INTERNOS Y EXTERNOS:
 -No se puede crear servicio desactivado aunque no se ponga el check.
 -hacer funcionar el boton de activar y desactivar.
 
+GENERALES:
+DOCUMENTOS:
+-Habilitar la subida de archivos.
+
+CHAT CON CASETA:
+-Hacer funcional el chat o quitarlo y pensar en algo mejor y mas sencillo.
+
+INCIDENTES:
+-Arreglar el botón de 'resuelto'. 
+
+
+
+
+
 
 
 
@@ -30,3 +44,4 @@ SERVICIOS INTERNOS Y EXTERNOS:
 OTROS:
 -Agregar una barra inferior para shortcuts de módulos.
 -prueba con todos los input errors.
+-Habilitar la cruz de todos los alerts para cerrarse u ocultarse.

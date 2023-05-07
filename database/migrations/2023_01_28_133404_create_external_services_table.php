@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('whatsapp')->nullable();
             $table->text('description')->nullable();
             $table->string('website')->nullable();
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1);
             $table->json('social_networks')->nullable();
             $table->foreignId('sphere_id')->constrained()->cascadeOnDelete();
 

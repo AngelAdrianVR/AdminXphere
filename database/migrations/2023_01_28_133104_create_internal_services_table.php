@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('phone');
             $table->string('whatsapp')->nullable();
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1);
             $table->foreignId('sphere_id')->constrained()->cascadeOnDelete();
 
             $table->timestamps();

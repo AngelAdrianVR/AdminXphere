@@ -70,8 +70,10 @@ Route::resource('external-services',ExternalServicesController::class)->Paramete
 //General and intern stuffs routes
 Route::resource('general', GeneralController::class)->middleware('auth');
 Route::get('/general-documents', [GeneralController::class,'documents'])->name('general.documents')->middleware('auth');
+Route::get('/general-documents/create', [GeneralController::class,'documentCreate'])->name('general.documents.create')->middleware('auth');
 Route::get('/general-guard-house-chat', [GeneralController::class,'guardHouseChat'])->name('general.guard-house-chat')->middleware('auth');
 Route::get('/general-report-incident', [GeneralController::class,'reportIncident'])->name('general.report-incident')->middleware('auth');
+Route::put('/general-report-incident/solved/{incident}', [GeneralController::class,'incidentSolved'])->name('general.report-incident.solved')->middleware('auth');
 Route::get('/general-surveys', [GeneralController::class,'surveys'])->name('general.surveys')->middleware('auth');
 Route::get('/general-permissions', [GeneralController::class,'permissions'])->name('general.permissions')->middleware('auth');
 Route::get('/general-suggestions', [GeneralController::class,'suggestions'])->name('general.suggestions')->middleware('auth');
