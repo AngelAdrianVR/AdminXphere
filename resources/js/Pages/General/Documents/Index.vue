@@ -12,7 +12,7 @@
         <span class="ml-1 cursor-default">Atrás</span>
       </Link>
       <div>
-      <Link :href="route('neighborhood.create')">
+      <Link :href="route('general.documents.create')">
         <SecondaryButton class="mr-7 mt-4 mb-1">Subir Documento</SecondaryButton
         >
       </Link>

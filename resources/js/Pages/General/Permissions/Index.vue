@@ -13,12 +13,6 @@
       </Link>
     </div>  
 
-<div class="flex justify-end">
-      <Link :href="route('resident-permissions.create')">
-      <SecondaryButton class="mr-7 my-1">Solicitar Permiso</SecondaryButton>
-      </Link>
-    </div>
-
     <div class="py-8">
       <div class="max-w-7xl mx-auto lg:px-8">
         <div class="lg:grid grid-cols-3 gap-4">
