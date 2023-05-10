@@ -40,4 +40,23 @@ class ResidentPermissionController extends Controller
 
         return redirect()->route('general.permissions');
     }
+
+    public function denegated(ResidentPermission $resident_permission)
+    {
+        $resident_permission->is_accepted = false;
+        $resident_permission->replied_at = now();
+        $resident_permission->save();
+
+        return to_route('general.permissions');
+    }
+
+    public function accepted(ResidentPermission $resident_permission)
+    {
+        $resident_permission->is_accepted = true;
+        $resident_permission->replied_at = now();
+        $resident_permission->save();
+
+        return to_route('general.permissions');
+    }
+
 }

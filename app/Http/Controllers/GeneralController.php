@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\IncedentResource;
 use App\Http\Resources\ResidentPermissionResource;
+use App\Http\Resources\SuggestionResource;
 use App\Models\Incident;
 use App\Models\ResidentPermission;
+use App\Models\Suggestion;
 use Illuminate\Http\Request;
 
 class GeneralController extends Controller
@@ -55,14 +57,17 @@ class GeneralController extends Controller
 
     public function permissions()
     {
-        $user_id = auth()->id();
-        $resident_permissions = ResidentPermissionResource::collection(ResidentPermission::where('user_id', $user_id)->with('permissionType')->get());
+        $my_sphere = auth()->user()->sphere_id;
+        $resident_permissions = ResidentPermissionResource::collection(ResidentPermission::where('sphere_id', $my_sphere)->with('permissionType', 'user')->get());
+        
         return inertia('General/Permissions/Index', compact('resident_permissions'));
     }
 
     public function suggestions()
     {
-        return inertia('General/Suggestions/Index');
+        $my_sphere = auth()->user()->sphere_id;
+        $suggestions = SuggestionResource::collection(Suggestion::where('sphere_id', $my_sphere)->latest()->get());
+        return inertia('General/Suggestions/Index', compact('suggestions'));
     }
 
     
