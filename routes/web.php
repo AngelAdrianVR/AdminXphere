@@ -76,6 +76,8 @@ Route::get('/general-report-incident', [GeneralController::class,'reportIncident
 Route::put('/general-report-incident/solved/{incident}', [GeneralController::class,'incidentSolved'])->name('general.report-incident.solved')->middleware('auth');
 Route::get('/general-surveys', [GeneralController::class,'surveys'])->name('general.surveys')->middleware('auth');
 Route::get('/general-permissions', [GeneralController::class,'permissions'])->name('general.permissions')->middleware('auth');
+Route::put('/general-permissions/denegated/{resident_permission}', [ResidentPermissionController::class,'denegated'])->name('general.permissions.denegated')->middleware('auth');
+Route::put('/general-permissions/accepted/{resident_permission}', [ResidentPermissionController::class,'accepted'])->name('general.permissions.accepted')->middleware('auth');
 Route::get('/general-suggestions', [GeneralController::class,'suggestions'])->name('general.suggestions')->middleware('auth');
 
 //Incidents routes

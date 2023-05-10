@@ -54,6 +54,8 @@ class SuggestionController extends Controller
     
     public function destroy(Suggestion $suggestion)
     {
-        //
+        $suggestion->delete();
+
+        to_route('general.suggestions');
     }
 }

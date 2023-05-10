@@ -35,7 +35,7 @@ class ResidentPermissionResource extends JsonResource
             'subject' => $this->subjet,
             'description' => $this->description,
             'permission_type' => $this->whenLoaded('permissionType'),
-            'user_id' => $this->user_id,
+            'user' => $this->whenLoaded('user'),
             'is_accepted' => $this->is_accepted,
             'status' => $status,
         ];

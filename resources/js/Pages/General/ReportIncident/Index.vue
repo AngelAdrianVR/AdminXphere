@@ -53,7 +53,7 @@ export default {
   },
 
   props: {
-    incidents: Array
+    suggestions: Array
   },
 
   methods: {

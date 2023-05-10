@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('is_accepted')->nullable();
             $table->foreignId('permission_type_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('sphere_id')->constrained()->cascadeOnDelete();
 
             $table->timestamps();
         });

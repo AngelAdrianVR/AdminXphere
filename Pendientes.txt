@@ -21,7 +21,7 @@ SERVICIOS INTERNOS Y EXTERNOS:
 -Área de gestión de cobranza por poner publicidad de servicio.
 -Agregar imagen a ambos servicios.
 -No se puede crear servicio desactivado aunque no se ponga el check.
--hacer funcionar el boton de activar y desactivar.
+-hacer funcionar el boton de activar y desactivar.(Cambiar el Link que lleva a la ruta por $inertia.put(route())
 
 GENERALES:
 DOCUMENTOS:
