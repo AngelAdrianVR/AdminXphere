@@ -12,9 +12,11 @@
       </Link>
     </div>
 
+    <SearchInput :filters="filters" filterURL="/users" />
+
     <div class="max-w-3xl w-full mx-auto z-10">
       <div class="flex flex-col">
-        <UserCard v-for="user in users" :key="user.id" :user="user" />
+        <UserCard v-for="user in users.data" :key="user.id" :user="user" />
       </div>
     </div>
   </AppLayout>
@@ -25,6 +27,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import UserCard from "@/Components/Cards/UserCard.vue";
 import { Link } from "@inertiajs/inertia-vue3";
+import SearchInput from "@/Components/SearchInput.vue";
 export default {
   data() {
     return {};
@@ -34,9 +37,12 @@ export default {
     SecondaryButton,
     Link,
     UserCard,
+    SearchInput
   },
   props: {
     users: Object,
+    filters: Object,
+    filterURL: String,
   },
 };
 </script>

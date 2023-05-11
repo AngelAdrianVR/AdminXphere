@@ -97,7 +97,7 @@ class User extends Authenticatable
         return $this->hasMany(ReservationFacility::class);
     }
 
-    public function vehicle()
+    public function vehicles()
     {
         return $this->hasMany(Vehicle::class);
     }
@@ -120,6 +120,15 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Coment::class);
+    }
+
+    // query scopes
+    public function scopeFilter($query, $filters)
+    {
+        $query->when($filters["search"] ?? null, function ($query, $search) {
+            $query->where('name', 'LIKE', "%$search%")
+                ->orWhere('id', 'LIKE', "%$search%");
+        });
     }
 
 

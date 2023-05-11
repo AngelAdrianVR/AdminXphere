@@ -5,10 +5,10 @@
 			<div class="input-group relative flex items-stretch w-full mb-4">
 
 				<input type="search" @keyup.enter="search" v-model="search_text" placeholder="Buscar..."
-					class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-500 bg-white bg-clip-padding border-2 border-solid border-teal-600 rounded-tl-md rounded-bl-md transition ease-in-out m-0 focus:text-gray-900 focus:bg-gray-200 focus:border-teal-600 focus:outline-none"
+					class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-500 bg-white bg-clip-padding border-2 border-solid border-emerald-600 rounded-tl-md rounded-bl-md transition ease-in-out m-0 focus:text-gray-900 focus:bg-gray-200 focus:border-emerald-600 focus:outline-none"
 					aria-label="Search" aria-describedby="button-addon2">
 				<button @click="search"
-					class="btn px-6 py-2.5 bg-teal-600 text-white font-medium text-xs leading-tight uppercase rounded-tr-md rounded-br-md shadow-md hover:bg-teal-700 hover:shadow-lg focus:bg-teal-800  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-teal-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
+					class="btn px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded-tr-md rounded-br-md shadow-md hover:bg-emerald-700 hover:shadow-lg focus:bg-emerald-800  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
 					type="button" id="button-addon2">
 
 					<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4"
@@ -20,7 +20,7 @@
 				</button>
 			</div>
 		</div>
-		<span v-if="has_submited" @click="clearSearch" class="text-sm text-teal-400 hover:text-teal-600 cursor-pointer ml-6 mt-4">Ver todo</span>
+		<span v-if="has_submited" @click="clearSearch" class="text-sm text-emerald-400 hover:text-emerald-600 cursor-pointer ml-6 mt-4">Ver todo</span>
 	</div>
 
 </template>
