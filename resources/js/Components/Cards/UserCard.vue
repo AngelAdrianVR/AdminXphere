@@ -23,13 +23,15 @@
                 >
               </div>
               <div></div>
-              <p class="text-xs text-gray-500">
-                Turno: {{ user.employee_properties?.shift }} | Ingresó el:
-                {{ user.created_at }}
+              <p v-if="user.vehicles" class="text-xs text-gray-500">
+                Vehículos:
+                <ul>
+                  <li v-for="vehicle in user.vehicles" :key="vehicle.brand"> * {{ vehicle.brand }} - {{ vehicle.model }}</li>
+                </ul> 
               </p>
               <p class="text-xs text-gray-500">
                 <i class="fa-solid fa-mobile-screen-button mr-1"></i>
-                {{ user.phone_number }}
+                {{ user.phone }}
               </p>
               <p class="text-xs text-gray-500">
                 <i class="fa-regular fa-envelope mr-1"></i>

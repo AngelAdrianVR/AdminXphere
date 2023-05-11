@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        $filters = $request->all('search');
+
+        $my_sphere = auth()->user()->sphere_id;
+        $users = UserResource::collection(User::where('sphere_id', $my_sphere)->with('vehicles')->orderBy('id')->filter($filters)
+        ->latest()->paginate(30));
+
+        // return $users;
 
         return inertia('User/Index', compact('users'));
     }
@@ -18,7 +25,7 @@ class UserController extends Controller
    
     public function create()
     {
-        //
+        return inertia('User/Create');
     }
 
     
