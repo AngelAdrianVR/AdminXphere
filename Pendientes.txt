@@ -36,12 +36,10 @@ INCIDENTES:
 
 
 
-
-
-
-
-
 OTROS:
 -Agregar una barra inferior para shortcuts de módulos.
 -prueba con todos los input errors.
 -Habilitar la cruz de todos los alerts para cerrarse u ocultarse.
+-Al ingresar por primera vez a la plataforma, los residentes deberan de actualizar su perfil con nueva
+contraseña, foto(opcional), un correo electrónico y numero de telefono.
+-Al ingresar a la plataforma de admin verificar si el usuarios es admin, de lo contrario no dar acceso.

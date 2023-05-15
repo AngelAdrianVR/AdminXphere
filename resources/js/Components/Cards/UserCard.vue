@@ -2,7 +2,7 @@
       <div
         class="bg-white border border-white shadow-lg rounded-2xl p-2 mx-3 my-1 hover:bg-slate-200"
       >
-        <Link :href="route('users.show', user.id)">
+        <Link :href="route('users.edit', user)">
           <div class="flex">
             <div class="relative h-16 w-16 mr-2">
               <i
@@ -23,7 +23,7 @@
                 >
               </div>
               <div></div>
-              <p v-if="user.vehicles" class="text-xs text-gray-500">
+              <p class="text-xs text-gray-500">
                 Vehículos:
                 <ul>
                   <li v-for="vehicle in user.vehicles" :key="vehicle.brand"> * {{ vehicle.brand }} - {{ vehicle.model }}</li>

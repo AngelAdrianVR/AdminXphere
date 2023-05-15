@@ -31,7 +31,19 @@ class UserController extends Controller
     
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:190',
+            'password' => 'required',
+            'phone' => 'nullable|max:10|min:10',
+            'is_active' => 'boolean',
+        ]);
+
+        User::create($request->except('password') + [
+            'password' => bcrypt($request->password),
+            'sphere_id' => auth()->user()->sphere_id
+        ]);
+
+        return to_route('users.index');
     }
 
     
@@ -43,13 +55,23 @@ class UserController extends Controller
     
     public function edit(User $user)
     {
-        //
+
+        // return $user;
+        return inertia('User/Edit', compact('user'));
     }
 
     
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:190',
+            'phone' => 'nullable|max:10|min:10',
+            'is_active' => 'boolean',
+        ]);
+
+        $user->update($request->all());
+
+        return to_route('users.index');
     }
 
     

@@ -29,6 +29,7 @@ class User extends Authenticatable
         'password',
         'sphere_id',
         'phone',
+        'is_active',
     ];
 
     /**
