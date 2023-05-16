@@ -25,6 +25,7 @@ class FacilityResource extends JsonResource
             'sphere_id' => $this->sphere_id,  
             'created_at' => $this->created_at,  
             'is_active' => $this->is_active,  
+            'media' => $this->getMedia()->all(),
         ];
     }
 }

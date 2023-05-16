@@ -52,6 +52,7 @@ Route::delete('post/comment/destroy/{coment}', [ComentController::class, 'destro
 //Guest routes
 Route::resource('guest',GuestController::class)->middleware('auth');
 Route::put('/guest-entry-guest/{guest}',[GuestController::class,'entryGuest'])->name('guest.entry-guest')->middleware('auth');
+Route::get('/guest-events',[GuestController::class,'event'])->name('guest.event')->middleware('auth');
 
 //Payment routes
 Route::resource('payments',PaymentController::class)->middleware('auth');

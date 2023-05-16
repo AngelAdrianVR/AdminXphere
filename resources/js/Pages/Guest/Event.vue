@@ -1,34 +1,33 @@
 <template>
-  <AppLayout title="Visitas">
+  <AppLayout title="Eventos">
     <template #header>
-      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Visitas</h2>
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">Eventos</h2>
     </template>
 
-  <div class="my-4 border-b border-gray-300">
+    <div class="my-4 border-b border-gray-300">
       <Tabs :tabs="tabs" />
     </div>
 
-    <SearchInput class="mt-9" :filters="filters" filterURL="/guest" />
-    <GuestsTable :guests="guests" />
+    <SearchInput :filters="filters" filterURL="/guest-events" />
+    <EventTable :events="events" />
     <div class="flex justify-end">
-      <Pagination :pagination="guests" />
+      <Pagination :pagination="events" />
     </div>
   </AppLayout>
 </template>
 <script>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import GuestsTable from "@/Components/GuestsTable.vue";
+import EventTable from "@/Components/EventTable.vue";
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import Pagination from "@/Components/Pagination.vue";
 import SearchInput from "@/Components/SearchInput.vue";
-import Select from "@/Components/Inputs/Select.vue";
 import Tabs from "@/Components/Tabs.vue";
 
 export default {
   data() {
     return {
-     tabs: [
+        tabs: [
         {
           label: "Bitácora",
           url: "guest.index",
@@ -43,18 +42,16 @@ export default {
 
   components: {
     AppLayout,
-    GuestsTable,
+    EventTable,
     Link,
     SecondaryButton,
     Pagination,
     SearchInput,
-    Select,
-    Tabs
+    Tabs,
   },
 
   props: {
-    users: Object,
-    guests: Object,
+    events: Object,
     filters: Object,
     filterURL: String,
   },

@@ -33,9 +33,8 @@ class FacilityController extends Controller
             'is_active'  => 'boolean',
         ]);
         
-        // return $request;
-        
-        Facility::create($request->all() + ['sphere_id' => auth()->user()->sphere_id]);
+        $facility = Facility::create($request->all() + ['sphere_id' => auth()->user()->sphere_id]);
+        $facility->addAllMediaFromRequest()->each(fn ($file) => $file->toMediaCollection());
 
         return redirect()->route('reservation-facilities.index');
     }

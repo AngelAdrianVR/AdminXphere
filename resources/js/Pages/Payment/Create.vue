@@ -63,8 +63,9 @@
         </div>
 
     <!-- User selector starts -->
-        <div :show="!all_users">
-        <label  class="block mt-3 w-full text-sm text-gray-500">Usuarios a los que va dirigida la ficha</label>
+    <transition name="fade">
+        <div v-if="!form.all_users">
+        <label  class="block mt-3 mb-3 w-full text-sm text-gray-500">Usuarios a los que va dirigida la ficha</label>
           <div class="">
             <select class="
             bg-gray-200
@@ -83,8 +84,9 @@
               </option>
             </select>
 
-            <SecondaryButton @click="addUser" class="mb-4">Agregar usuario</SecondaryButton>
-            <div>
+            <SecondaryButton @click="addUser" class="mb-4 mr-1">Agregar usuario</SecondaryButton>
+              <SecondaryButton @click="cleanUsers">Borrar todos</SecondaryButton>
+            <div class="border-2 border-emerald-400 p-3 my-2 rounded-xl">
               <span v-for="(item,index) in form.users_selected" :key="item" class="bg-sky-100 px-1 py-px rounded-md mr-3 text-xs">
                 {{ item }} <button type="button" @click="deleteUser(index)">x</button>
               </span>
@@ -110,6 +112,7 @@
             ">Días de trabajo*</label>
           <InputError :message="$page.props?.errors.employee_properties?.work_days" />
           </div>
+          </transition>
 <!-- User selector ends -->
 
         <div class="flex justify-center lg:justify-end">
@@ -136,7 +139,7 @@ export default {
       expired_date: "",
       amount: "",
       users_selected: [],
-      all_users: false,
+      all_users: true,
       selected_user: null,
     });
     return { form };
@@ -158,7 +161,7 @@ export default {
 
   methods: {
     store() {
-      this.form.post(route("payment.store"));
+      this.form.post(route("payments.store"));
     },
     addUser() {
       this.form.users_selected.push(this.selected_user);
@@ -166,6 +169,21 @@ export default {
     deleteUser(index) {
       this.form.users_selected.splice(index);
     },
+    cleanUsers() {
+      this.form.users_selected = [];
+    },
   },
 };
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+</style>

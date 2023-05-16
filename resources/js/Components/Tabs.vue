@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center border-b-2 font-bold w-full overflow-x-auto">
     <Link v-for="(tab, key) in tabs" :key="key" :href="route(tab.url)"
-      :class="route().current(tab.url) ? 'border-teal-500 text-teal-500 border-b-2' : ''" class="px-7 py-1"
+      :class="route().current(tab.url) ? 'border-emerald-500 text-emerald-500 border-b-2' : ''" class="px-7 py-1"
       v-html="tab.label" />
   </div>
 </template>

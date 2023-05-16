@@ -103,7 +103,7 @@ export default {
   methods:{
     entry() {
       this.$inertia.put(
-        this.route("guest.entry-guest", this.item_to_entry)
+        route("guest.entry-guest", this.item_to_entry)
       );
       this.entry_confirm = false;
     },
