@@ -18,6 +18,9 @@
     <div>
       <PaymentTable :payments="payments" />
     </div>
+    <div class="flex justify-end">
+      <Pagination :pagination="payments" />
+    </div>
   </AppLayout>
 </template>
 <script>
@@ -27,6 +30,7 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import PaymentTable from "@/Components/PaymentTable.vue";
 import Tabs from "@/Components/Tabs.vue";
+import Pagination from "@/Components/Pagination.vue";
 
 export default {
   data() {
@@ -51,6 +55,7 @@ export default {
     SecondaryButton,
     PaymentTable,
     Tabs,
+    Pagination
   },
 
   props: {

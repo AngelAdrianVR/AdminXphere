@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\EventResource;
 use App\Http\Resources\FavoriteGuestResource;
 use App\Http\Resources\GuestResource;
+use App\Models\Event;
 use App\Models\FavoriteGuest;
 use App\Models\Guest;
 use App\Models\GuestType;
@@ -22,8 +24,18 @@ class GuestController extends Controller
                     ->latest()->paginate(30));
         $users = User::all();
 
-        // return $guests;
         return Inertia::render('Guest/Index',compact('guests','users'));
+    }
+
+    public function event(Request $request)
+    {
+        $filters = $request->all('search');
+
+        $events = EventResource::collection(Event::with('user')
+                    ->filter($filters)
+                    ->latest()
+                    ->paginate(30));
+        return inertia('Guest/Event', compact('events'));
     }
 
 
@@ -101,7 +113,7 @@ class GuestController extends Controller
         return redirect()->route('guest.index');
     }
 
-    public function entryGuest($guest)
+    public function entryGuest(Guest $guest)
     {
         $guest->arrived_time = now();
         $guest->save();

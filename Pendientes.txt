@@ -1,13 +1,11 @@
 VISITAS:
--En modulo de visitas no sirve el boton que asigna la entrada al visitnte.
--El select de usuarios no funciona. Te da todas las visitas del residente seleccionado. Se puede cambiar por el buscador.
+-Revisar que hora marca cuando se ingresa a un visitante.
 
 PAGOS:
--Paginar historial de todos los pagos de todos los usuarios.
--En crear ficha de pago, activando el check de todos los usuarios se oculta el apartado de seleccion de usuarios.
 -En el selector de usuarios Se agrega al array los puros nombres de usuario y al eliminar el usuario se borra mal.
 -En el tab de pendientes se tienen que mostrar los pagos que no se han pagado pero que no estan expirados. solo pendientes.
--
+-Logica para mandar solo la ficha a usuarios seleccionados no sirve.
+
 
 SECCIÓN VECINAL:
 -Crear avisos o post normal y poner un distintivo o colocarlo en un lugar estrategico para que toda la gente lo vea.
@@ -32,6 +30,10 @@ CHAT CON CASETA:
 
 INCIDENTES:
 -Arreglar el botón de 'resuelto'. 
+
+
+CONFIGURACIONES:
+-Agregar tipos de visitas. Que se pueda agregar tanto en visitas, como en configraciones
 
 
 

@@ -21,23 +21,26 @@ class PaymentController extends Controller
                     ->orWhereNull('expired_date')
                     ->with('user')
                     ->latest()
-                    ->get());
-        // return $payments;
+                    ->paginate(30));
         return Inertia::render('Payment/Index',compact('payments'));
     }
 
     public function historyPayment()
     {
         $my_sphere_id = auth()->user()->sphere_id;
-        $payments = PaymentResource::collection(Payment::where('sphere_id', $my_sphere_id)->with('user')->latest()->get());
-        // return $payments;
+        $payments = PaymentResource::collection(Payment::where('sphere_id', $my_sphere_id)
+                    ->with('user')
+                    ->latest()
+                    ->paginate(30));
+
         return Inertia::render('Payment/History',compact('payments'));
     }
 
 
     public function create()
     {
-        $users = User::where('sphere_id', 5)->get();
+        $my_sphere = auth()->user()->sphere_id;
+        $users = User::where('sphere_id', $my_sphere)->get();
 
         return inertia('Payment/Create', compact('users'));
     }
@@ -45,7 +48,24 @@ class PaymentController extends Controller
    
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'concept' => 'required',
+            'description' => 'nullable',
+            'expired_date' => 'nullable|date',
+            'amount' => 'required|numeric|min:1',
+            'all_users' => 'boolean',
+        ]);
+
+        if(!$request->all_users){
+            foreach ($user as $request->all_users) {
+                Payment::create($request->except('all_users') + [
+                    'user_id' => User::where('name', $user),
+                    'sphere_id ' => auth()->user()->sphere_id,
+                ]);
+            }
+        }
+
+        return to_route('payments.history');
     }
 
 
