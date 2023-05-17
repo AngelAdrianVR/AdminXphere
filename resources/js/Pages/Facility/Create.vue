@@ -6,7 +6,7 @@
 
     <div class="flex justify-start ml-2">
       <Link
-        :href="route('reservation-facilities.index')"
+        :href="route('facilities.index')"
         class="flex items-center mt-2 text-slate-700"
       >
         <i
@@ -19,7 +19,7 @@
     <div
       class="max-w-2xl md:mx-auto mt-5 shadow-md shadow-gray-500/70 rounded-lg px-5 py-8 bg-white mx-4"
     >
-      <form @submit.prevent="update">
+      <form enctype="multipart/form-data" @submit.prevent="store">
         <div class="relative z-0 mb-6 w-full group">
           <FloatingInput v-model="form.name" type="text">
             <template #label> Nombre del Área* </template>
@@ -70,7 +70,7 @@
             class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-emerald-600 peer-focus:dark:text-emerald-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >Descripción</label
           >
-          <InputError :message="$page.props?.errors.notes" />
+          <InputError :message="$page.props?.errors.description" />
         </div>
 
         <div class="block mb-7">
@@ -83,12 +83,13 @@
         <label class="text-gray-500"
           >Sube una imagen del Área</label
         >
-        <div class="relative z-0 mb-6 w-full group">
+        <input type="file" @change="getImage">
+        <!-- <div class="relative z-0 mb-6 w-full group">
           <FileUploader @input="form.resources = $event.target.files" />
-        </div>
+        </div> -->
 
         <div class="flex justify-center lg:justify-end">
-          <PrimaryButton :disabled="form.processing">Actualizar</PrimaryButton>
+          <PrimaryButton :disabled="form.processing">Agregar</PrimaryButton>
         </div>
       </form>
     </div>
@@ -106,13 +107,13 @@ import Checkbox from "@/Components/Checkbox.vue";
 export default {
   data() {
     const form = useForm({
-      name: this.facility.name,
-      location: this.facility.location,
-      capacity: this.facility.capacity,
-      cost: this.facility.cost,
-      hours_available: this.facility.hours_available,
-      description: this.facility.description,
-      is_active: this.facility.is_active,
+      name: "",
+      location: "",
+      capacity: null,
+      cost: null,
+      hours_available: null,
+      description: "",
+      is_active: true,
     });
     return {
       form,
@@ -129,14 +130,15 @@ export default {
     Checkbox
   },
 
-  props: {
-    facility: Object
-  },
+  props: {},
 
   methods: {
-    update() {
-      this.form.put(this.route("facilities.update", this.facility.id));
+    store() {
+      this.form.post(this.route("facilities.store"));
     },
+    getImage(e){
+      let file = e.target.files[0];
+    }
   },
   mounted() {},
 };

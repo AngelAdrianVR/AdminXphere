@@ -54,28 +54,28 @@
 
     <div class="border border-emerald-500/50 rounded-lg p-2">
         <div class="relative z-0 mb-6 mt-2 w-full group">
-          <FloatingInput v-model="form.social_networks" type="text">
+          <FloatingInput v-model="form.social_networks.facebook" type="text">
             <template #label>Facebook </template>
           </FloatingInput>
           <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
         </div>
 
         <div class="relative z-0 mb-6 w-full group">
-          <FloatingInput v-model="form.social_networks" type="text">
+          <FloatingInput v-model="form.social_networks.instagram" type="text">
             <template #label>Instagram </template>
           </FloatingInput>
           <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
         </div>
 
         <div class="relative z-0 mb-6 w-full group">
-          <FloatingInput v-model="form.social_networks" type="text">
+          <FloatingInput v-model="form.social_networks.tiktok" type="text">
             <template #label>Tiktok </template>
           </FloatingInput>
           <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
         </div>
 
         <div class="relative z-0 mb-6 w-full group">
-          <FloatingInput v-model="form.social_networks" type="text">
+          <FloatingInput v-model="form.social_networks.twitter" type="text">
             <template #label>Twitter </template>
           </FloatingInput>
           <InputError :message="$page.props?.errors.social_networks" class="mb-4" />
@@ -138,10 +138,10 @@ export default {
       whatsapp: "",
       website: "",
       social_networks: {
-        facebook: null,
-        instagram: null,
-        tiktok: null,
-        twitter: null,
+        "facebook": null,
+        "instagram": null,
+        "tiktok": null,
+        "twitter": null,
       },
       description: "",
       is_active: true,

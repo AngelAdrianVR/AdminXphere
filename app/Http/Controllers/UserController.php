@@ -66,10 +66,11 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|max:190',
             'phone' => 'nullable|max:10|min:10',
-            'is_active' => 'boolean',
         ]);
 
-        $user->update($request->all());
+        $user->update($request->all() + [
+            'is_active' => $request->is_active
+        ]);
 
         return to_route('users.index');
     }
@@ -77,6 +78,9 @@ class UserController extends Controller
     
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        request()->session()->flash('flash.banner', 'Se eliminó correctamente');
+        request()->session()->flash('flash.bannerStyle', 'success');
+        return to_route('users.index');
     }
 }

@@ -29,7 +29,7 @@
         </div>
 
         <div class="relative z-0 mb-6 w-full group">
-          <FloatingInput v-model="form.phone" type="number">
+          <FloatingInput v-model="form.phone" type="text">
             <template #label> Teléfono * </template>
           </FloatingInput>
           <InputError :message="$page.props?.errors.phone" class="mb-4" />
@@ -70,7 +70,7 @@ export default {
     const form = useForm({
       name: this.user.name,
       phone: this.user.phone,
-      is_active: this.user.is_active,
+      is_active: true,
     });
     return {
       form,
@@ -94,7 +94,7 @@ export default {
 
   methods: {
     update() {
-      this.form.put(this.route("users.update"), this.user);
+      this.form.put(this.route("users.update",this.user));
     },
   },
   mounted() {},

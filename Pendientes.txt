@@ -12,14 +12,17 @@ SECCIÓN VECINAL:
 
 ÁREAS COMUNES PARA RESERVAR:
 -Agregar imagen al área creada.
+-Mostrar una vista de la imagen en miniatura como en el video de yputube, guardado en "me gusta"
 -Área de Agenda donde se vean todas las areas comunes que se han solicitado.
+-en xphere de residente traer solo las areas que están activas.
+-Dar estilo al input file.
+
 
 SERVICIOS INTERNOS Y EXTERNOS:
--arreglar en servicios externos lo de redes sociales.
+-en xphere de residente traer solo las areas que están activas.
 -Área de gestión de cobranza por poner publicidad de servicio.
 -Agregar imagen a ambos servicios.
 -No se puede crear servicio desactivado aunque no se ponga el check.
--hacer funcionar el boton de activar y desactivar.(Cambiar el Link que lleva a la ruta por $inertia.put(route())
 
 GENERALES:
 DOCUMENTOS:
@@ -35,7 +38,9 @@ INCIDENTES:
 CONFIGURACIONES:
 -Agregar tipos de visitas. Que se pueda agregar tanto en visitas, como en configraciones
 
-
+USUARIOS:
+-Poner el avatar del usuario en vez del icono de user.
+-soft delete.
 
 
 OTROS:
