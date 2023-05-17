@@ -73,6 +73,9 @@ class FacilityController extends Controller
 
     public function destroy(Facility $facility)
     {
-        //
+        $facility->delete();
+        request()->session()->flash('flash.banner', 'Se eliminó correctamente');
+        request()->session()->flash('flash.bannerStyle', 'success');
+        return to_route('reservation-facilities.index');
     }
 }

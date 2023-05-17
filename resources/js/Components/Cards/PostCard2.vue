@@ -1,6 +1,6 @@
 <template>
 
-<div class="flex bg-white shadow-lg rounded-lg md:mx-auto max-w-md md:max-w-2xl cursor-pointer border-2 border-gray-200 hover:border-emerald-600 px-2 py-2 mb-3 transition ease-in-out"><!--horizantil margin is just for display-->
+<div :class="post.user.is_admin ? 'border-2 border-amber-400' : '' " class="flex bg-white shadow-lg rounded-lg md:mx-auto max-w-md md:max-w-2xl cursor-pointer border-2 border-gray-200 hover:border-emerald-600 px-2 py-2 mb-3 transition ease-in-out"><!--horizantil margin is just for display-->
 <Link :href="route('neighborhood.show', post.id)">
    <div class="flex items-start px-14 py-6 -ml-9">
       <img class="w-14 h-14 rounded-full object-cover mr-4 shadow" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="avatar">
