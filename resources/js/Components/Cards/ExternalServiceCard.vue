@@ -7,7 +7,7 @@
       <div class="bg-gray-200 font-sans w-full flex flex-row justify-center items-center">
         <div class="card w-80 mx-auto bg-white shadow-xl hover:shadow">
           <img
-            :class="external_service.is_active ? 'border-green-500' : 'border-red-500'"
+            :class="external_service.is_active ? 'border-4 border-green-500' : 'border-4 border-red-500'"
             class="w-32 mx-auto rounded-full -mt-20 border-2"
             src="https://avatars.githubusercontent.com/u/67946056?v=4"
             alt=""
@@ -35,7 +35,7 @@
               v-if="external_service.website"
               class="text-center mt-1 font-light text-sm"
             >
-              <i class="fa-solid fa-earth-americas text-gray-500"></i>
+              <i class="fa-solid fa-earth-americas text-gray-500 mr-1"></i>
               <a
                 target="blank"
                 class="hover:underline inline-block py-1"
@@ -48,7 +48,7 @@
               v-if="external_service.social_networks.facebook"
               class="text-center mt-1 font-light text-sm"
             >
-              <i class="fa-brands fa-facebook text-blue-600"></i>
+              <i class="fa-brands fa-facebook text-blue-600 mr-1"></i>
               <a
                 target="blank"
                 class="hover:underline inline-block py-1"
@@ -62,7 +62,7 @@
               class="text-center mt-1 font-light text-sm"
             >
               <i
-                class="fa-brands fa-instagram bg-gradient-to-tl from-orange-400 to-violet-500 text-gray-200"
+                class="fa-brands fa-instagram bg-gradient-to-tl from-orange-400 to-violet-500 text-gray-200 mr-1"
               ></i>
               <a
                 target="blank"
@@ -76,7 +76,7 @@
               v-if="external_service.social_networks.tiktok"
               class="text-center mt-1 font-light text-sm"
             >
-              <i class="fa-brands fa-tiktok"></i>
+              <i class="fa-brands fa-tiktok mr-1"></i>
               <a
                 target="blank"
                 class="hover:underline inline-block py-1"
@@ -89,7 +89,7 @@
               v-if="external_service.social_networks.twitter"
               class="text-center mt-1 font-light text-sm"
             >
-              <i class="fa-brands fa-twitter text-sky-500"></i>
+              <i class="fa-brands fa-twitter text-sky-500 mr-1"></i>
               <a
                 target="blank"
                 class="hover:underline inline-block py-1"
@@ -102,9 +102,11 @@
           <hr class="mt-8" />
           <div class="flex p-4">
             <div class="w-1/2 text-center">
-              <SecondaryButton>{{
-                external_service.is_active ? "Desactivar" : "Activar"
-              }}</SecondaryButton>
+              <SecondaryButton @click="external_service.is_active
+               ? $inertia.put(route('external-service.disable', external_service)) 
+               : $inertia.put(route('external-service.enable', external_service))">
+               {{external_service.is_active ? 'Desactivar' : 'Activar'}}
+              </SecondaryButton>
             </div>
             <div class="w-0 border border-gray-300"></div>
             <div class="w-1/2 text-center">
@@ -114,7 +116,7 @@
             </div>
           </div>
 
-          <div class="flex p-4">
+          <div class="flex pb-4">
             <div class="w-full text-center">
                 <PrimaryButton @click="delete_confirm=true" class="bg-red-700/100 hover:bg-red-600/100 shadow-red-800/100">Eliminar</PrimaryButton>
             </div>
@@ -171,7 +173,7 @@ export default {
       this.$inertia.delete(
         this.route("external-services.destroy", this.external_service)
       );
-      this.entry_confirm = false;
+      this.delete_confirm = false;
     },
   },
 };

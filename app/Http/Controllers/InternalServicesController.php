@@ -60,7 +60,10 @@ class InternalServicesController extends Controller
         ]);
         
         
-        $internal_service->update($request->all() + ['sphere_id' => auth()->user()->sphere_id]);
+        $internal_service->update($request->except('is_active') + [
+            'sphere_id' => auth()->user()->sphere_id,
+            'is_active' => $request->is_active,
+        ]);
 
         return redirect()->route('internal-services.index');
     }
@@ -69,6 +72,24 @@ class InternalServicesController extends Controller
     public function destroy(InternalServices $internal_service)
     {
         $internal_service->delete();
+        request()->session()->flash('flash.banner', 'Se eliminó correctamente');
+        request()->session()->flash('flash.bannerStyle', 'success');
+        return redirect()->route('internal-services.index');
+    }
+    
+    public function disable(InternalServices $internal_service)
+    {
+       $internal_service->is_active = false;
+       $internal_service->save();
+
+        return redirect()->route('internal-services.index');
+    }
+
+    public function enable(InternalServices $internal_service)
+    {
+        $internal_service->is_active = true;
+       $internal_service->save();
+
         return redirect()->route('internal-services.index');
     }
 }

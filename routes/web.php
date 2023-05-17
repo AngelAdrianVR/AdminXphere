@@ -66,7 +66,11 @@ Route::resource('facilities',FacilityController::class)->middleware('auth');
 
 //Services routes
 Route::resource('internal-services',InternalServicesController::class)->Parameters(['internal-services' => 'internal_service'])->middleware('auth');
+Route::put('internal-services-disable/{internal_service}',[InternalServicesController::class, 'disable'])->middleware('auth')->name('internal-service.disable');
+Route::put('internal-services-enable/{internal_service}',[InternalServicesController::class, 'enable'])->middleware('auth')->name('internal-service.enable');
 Route::resource('external-services',ExternalServicesController::class)->Parameters(['external-services' => 'external_service'])->middleware('auth');
+Route::put('external-services-disable/{external_service}',[ExternalServicesController::class, 'disable'])->middleware('auth')->name('external-service.disable');
+Route::put('external-services-enable/{external_service}',[ExternalServicesController::class, 'enable'])->middleware('auth')->name('external-service.enable');
 
 //General and intern stuffs routes
 Route::resource('general', GeneralController::class)->middleware('auth');

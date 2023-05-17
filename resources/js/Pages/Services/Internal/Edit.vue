@@ -96,7 +96,7 @@ export default {
       phone: this.internal_service.phone,
       whatsapp: this.internal_service.whatsapp,
       description: this.internal_service.description,
-      is_active: this.internal_service.is_active,
+      is_active: true,
     });
     return {
       form,

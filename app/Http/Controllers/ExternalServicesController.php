@@ -75,4 +75,20 @@ class ExternalServicesController extends Controller
         $external_service->delete();
         return redirect()->route('external-services.index');
     }
+
+    public function disable(ExternalServices $external_service)
+    {
+       $external_service->is_active = false;
+       $external_service->save();
+
+        return redirect()->route('external-services.index');
+    }
+
+    public function enable(ExternalServices $external_service)
+    {
+        $external_service->is_active = true;
+       $external_service->save();
+
+        return redirect()->route('external-services.index');
+    }
 }

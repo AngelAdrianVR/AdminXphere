@@ -449,8 +449,8 @@ const logout = () => {
                 Chat
               </a>
               <ResponsiveNavLink
-                :href="route('reservation-facilities.index')"
-                :active="route().current('reservation-facilities.*')"
+                :href="route('facilities.index')"
+                :active="route().current('facilities.*')"
               >
               <svg
                 class="w-6 h-6 fill-current inline-block"
@@ -464,7 +464,7 @@ const logout = () => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-                Reservación de Areas
+                Áreas Comunes
               </ResponsiveNavLink>
               <ResponsiveNavLink
                 :href="route('internal-services.index')"

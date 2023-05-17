@@ -8,7 +8,7 @@
         class="bg-gray-200 font-sans w-full flex flex-row justify-center items-center"
       >
         <div class="card w-80 mx-auto bg-white shadow-xl hover:shadow">
-          <img :class="internal_service ? 'border-green-500' : 'border-red-500' "
+          <img :class="internal_service.is_active ? 'border-4 border-green-500' : 'border-4 border-red-500' "
             class="w-32 mx-auto rounded-full -mt-20 border-2"
             src="https://avatars.githubusercontent.com/u/67946056?v=4"
             alt=""
@@ -26,7 +26,11 @@
           <hr class="mt-8" />
           <div class="flex p-4">
             <div class="w-1/2 text-center">
-              <SecondaryButton>{{internal_service.is_active ? 'Desactivar' : 'Activar'}}</SecondaryButton>
+              <SecondaryButton @click="internal_service.is_active
+               ? $inertia.put(route('internal-service.disable', internal_service)) 
+               : $inertia.put(route('internal-service.enable', internal_service))">
+               {{internal_service.is_active ? 'Desactivar' : 'Activar'}}
+              </SecondaryButton>
             </div>
             <div class="w-0 border border-gray-300"></div>
             <div class="w-1/2 text-center">
@@ -94,7 +98,7 @@ export default {
       this.$inertia.delete(
         this.route("internal-services.destroy", this.internal_service)
       );
-      this.entry_confirm = false;
+      this.delete_confirm = false;
     },
   },
 };

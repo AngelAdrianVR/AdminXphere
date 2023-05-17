@@ -13,11 +13,11 @@
       </Link>
     </div>
 
-    <div class="py-5">
+    <div class="py-6">
       <div class="max-w-7xl mx-auto lg:px-8">
         <div class="lg:grid grid-cols-3 gap-4">
-          <h1 class="col-span-full text-cyan-700 font-bold text-2xl mb-2 ml-4">Areas comunes para reservar</h1>
-         <FacilityCard2 v-for="facility in facilities.data" :key="facility.id" :facility="facility" class="mb-6" />
+          <h1 class="col-span-full text-cyan-700 font-bold text-2xl my-4 ml-4">Áreas comunes para reservar</h1>
+         <FacilityCard2 v-for="facility in facilities.data" :key="facility.id" :facility="facility" class="mb-2" />
         </div>
       </div>
     </div>
