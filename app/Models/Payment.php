@@ -16,6 +16,7 @@ class Payment extends Model
         'description',
         'concept',
         'user_id',
+        'sphere_id',
     ];
 
     protected $dates = [

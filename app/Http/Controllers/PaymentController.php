@@ -40,7 +40,9 @@ class PaymentController extends Controller
     public function create()
     {
         $my_sphere = auth()->user()->sphere_id;
-        $users = User::where('sphere_id', $my_sphere)->get();
+        $users = User::where('sphere_id', $my_sphere)
+                    ->where('is_active', true)
+                    ->get();
 
         return inertia('Payment/Create', compact('users'));
     }
@@ -48,6 +50,9 @@ class PaymentController extends Controller
    
     public function store(Request $request)
     {
+
+        // return $request->users_selected[1];
+
         $request->validate([
             'concept' => 'required',
             'description' => 'nullable',
@@ -56,13 +61,22 @@ class PaymentController extends Controller
             'all_users' => 'boolean',
         ]);
 
+        //if the payment ticket is not for all users. (checkbox "all_users" is not selected)
         if(!$request->all_users){
-            foreach ($user as $request->all_users) {
+            //bucle in array which contains all ticket's users
+            foreach ($request->users_selected as $user ) {
+                //obj user saved. founded with name in array sended in request
+                $my_sphere = auth()->user()->sphere_id;
+                $user = User::where('name', $user)->where('sphere_id', $my_sphere)->get();
+                $user_id = $user[0]->id;
                 Payment::create($request->except('all_users') + [
-                    'user_id' => User::where('name', $user),
-                    'sphere_id ' => auth()->user()->sphere_id,
+                    'user_id' => $user_id,
+                    'sphere_id' => $my_sphere,
                 ]);
             }
+        }else{
+            return 'No se ha hecho la logica para crear pago a todos los usuarios, pensar si es eficiente que se haga un 
+            registro de pago para cada usuario';
         }
 
         return to_route('payments.history');

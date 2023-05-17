@@ -37,6 +37,7 @@ class PaymentResource extends JsonResource
             'concept' => $this->concept,
             'status' => $status,
             'user' => $this->whenLoaded('user'),
+            'sphere' => $this->whenLoaded('sphere'),
         ];
     }
 }
