@@ -38,7 +38,9 @@ INCIDENTES:
 CONFIGURACIONES:
 -Agregar tipos de visitas. Que se pueda agregar tanto en visitas, como en configraciones
 
-
+USUARIOS:
+-Poner el avatar del usuario en vez del icono de user.
+-soft delete.
 
 
 OTROS:
